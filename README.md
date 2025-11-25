@@ -19,30 +19,28 @@
 
 Ez a projekt egy teljesen automatizált telepítő scriptet tartalmaz, amellyel gyorsan és egyszerűen létrehozhatsz egy biztonságos qBittorrent seed szervert Docker környezetben.
 
-A script telepítés közben rákérdez:
+A script telepítés közben megkérdezi:
 - hogyan szeretnéd elérni a WebUI-t  
-  ✔ IP: http://IP:8080  
+  ✔ IP (http://IP:8080)  
   ✔ Domain + HTTPS (Caddy reverse proxy)
 
-Domain mód esetén automatikusan konfigurálja:
-- a HTTPS-t (Let's Encrypt)
-- az IP alapú elérés tiltását
-- a kizárólag domain-hozzáférést
-
-A script a qBittorrent által generált ideiglenes jelszót is automatikusan kiolvassa és megjeleníti.
+Domain mód esetén:
+- automatikus HTTPS (Let's Encrypt)
+- IP alapú elérés tiltása
+- kizárólag domain hozzáférés
+- automatikus jelszókiolvasás
 
 ---
 
 ## 🚀 Funkciók
 
 - Teljesen automatizált telepítés (Docker + qBittorrent + Caddy)
-- IP vagy DOMAIN alapú WebUI elérés
-- Automatikus Let's Encrypt tanúsítványkezelés
-- Reverse proxy Caddy-vel
-- IP alapú elérés automatikus tiltása domain módban
-- Első induláskor generált admin jelszó automatikus kiolvasása
-- Stabil, biztonságos alapbeállítások
-- Telepítés dedikált könyvtárba: `/opt/qbittorrent-install`
+- IP vagy DOMAIN alapú elérés
+- Automatikus Let's Encrypt HTTPS
+- IP hozzáférés tiltása domain módban
+- qBittorrent jelszó automatikus kiolvasása
+- Letisztított, biztonságos Docker stack
+- Telepítési könyvtár: `/opt/qbittorrent-install`
 
 ---
 
@@ -62,60 +60,80 @@ A script a qBittorrent által generált ideiglenes jelszót is automatikusan kio
    ```bash
    sudo ./qbittorrent_install.sh
 
-8. A script futás közben kérni fogja:
-   - hogy IP vagy DOMAIN módot választasz
-   - DOMAIN mód esetén a saját domaint (pl. qb.pelda.hu)
+A telepítő kérni fogja:
+- IP vagy DOMAIN mód kiválasztását  
+- DOMAIN mód esetén a domaint (pl. qb.pelda.hu)
 
 ---
 
 ## 🌐 Elérés
 
-### ➤ 1) IP alapú telepítés esetén  
+### ➤ IP alapú
 - WebUI: `http://IP:8080`  
 - Felhasználó: `admin`  
 - Jelszó: automatikusan kiírva  
 - Port: `6881` (TCP/UDP)
 
-### ➤ 2) Domain + HTTPS telepítés esetén  
+### ➤ Domain + HTTPS
 - WebUI: `https://sajatdomain.hu`  
+- HTTPS automatikusan  
+- IP hozzáférés tiltva  
 - Felhasználó: `admin`  
-- Jelszó: automatikusan kiírva  
-- Automatikus HTTPS (Let's Encrypt)  
-- IP elérés tiltva  
+- Jelszó: megjelenik a telepítés végén  
 
 ---
 
 ## 🔐 Biztonság
 
 Domain mód esetén:
-- IP elérés automatikusan blokkolva (403 Forbidden)
-- HTTPS automatikusan aktiválva
-- qBittorrent WebUI csak domainen keresztül érhető el
+- 443-as IP elérés → *403 Forbidden*  
+- automatikus HTTPS  
+- automatikus tanúsítvány megújítás  
+- kizárólag domainen működik a WebUI  
 
 ---
 
 ## 🛠 Követelmények
 
 - Debian 13
-- Root jogosultság
+- Root jog
 - VPS
-- Domain módhoz:
-  - A/AAAA rekord a VPS IP-re mutasson
-  - 80 és 443 port legyen nyitva
+- Domain mód esetén: A/AAAA rekord + nyitott 80/443
 
 ---
 
-## 🔄 Konténerek frissítése
+# 🔄 Konténerek frissítése
 
-A konténerek frissítéséhez futtasd:
-  
-  - `sudo docker compose pull`
-  - `docker compose up -d`
-  - `docker image prune -f`
+1. A konténerek kézi frissítéséhez futtasd:
+   ```bash
+   cd /opt/qbittorrent-install
+   docker compose pull
+   docker compose up -d
+   docker image prune -f
+
+---
+
+# 🆙 Frissítő Script (Update Script)
+
+### 📥 Telepítés
+
+1) Hozd létre az update script fájlt:
+   ```bash
+   nano /opt/qbittorrent-install/qbittorrent_update.sh
+
+4) Másold bele az itt található **qbittorrent_update.sh** script tartalmát, majd mentsd el.
+
+5) Adj futási jogot:
+   ```bash
+   chmod +x /opt/qbittorrent-install/update.sh
+
+4) Indítsd el:
+   ```bash
+   sudo /opt/qbittorrent-install/update.sh
 
 ---
 
 ## 🧑‍💻 Készítette
 
-**Doky**  
+**Doky**
 2025.11.25
