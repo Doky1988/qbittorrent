@@ -48,18 +48,21 @@ A script a qBittorrent által generált ideiglenes jelszót is automatikusan kio
 
 ## 📥 Telepítés
 
-1. Hozd létre a telepítő fájlt:  
-   `nano qbittorrent_install.sh`
+1. Hozd létre a telepítő fájlt:
+   ```bash
+   nano qbittorrent_install.sh
 
-2. Másold bele a scriptet és mentsd el.
+3. Másold bele a scriptet és mentsd el.
 
-3. Adj futási jogot:  
-   `chmod +x qbittorrent_install.sh`
+4. Adj futási jogot:
+   ```bash
+   chmod +x qbittorrent_install.sh
 
-4. Futtasd:  
-   `sudo ./qbittorrent_install.sh`
+6. Futtasd:
+   ```bash
+   sudo ./qbittorrent_install.sh
 
-5. A script futás közben kérni fogja:
+8. A script futás közben kérni fogja:
    - hogy IP vagy DOMAIN módot választasz
    - DOMAIN mód esetén a saját domaint (pl. qb.pelda.hu)
 
@@ -93,9 +96,9 @@ Domain mód esetén:
 
 ## 🛠 Követelmények
 
-- Debian 12 vagy 13
+- Debian 13
 - Root jogosultság
-- VPS (KVM)
+- VPS
 - Domain módhoz:
   - A/AAAA rekord a VPS IP-re mutasson
   - 80 és 443 port legyen nyitva
@@ -105,10 +108,10 @@ Domain mód esetén:
 ## 🔄 Konténerek frissítése
 
 A konténerek frissítéséhez futtasd:
-
-- `docker compose pull`
-- `docker compose up -d`
-- `docker image prune -f`
+  
+  - `sudo docker compose pull`
+  - `docker compose up -d`
+  - `docker image prune -f`
 
 ---
 
