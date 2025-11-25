@@ -10,7 +10,7 @@
 </p>
 
 <p align="center">
-  <b>Debian 13 | HTTPS | Domain vagy IP alapú elérés</b>
+  <b>Debian 13 | HTTPS | Domain vagy IP alapú elérés | 6881 TCP/UDP port automatikusan nyitva</b>
 </p>
 
 ---
@@ -30,6 +30,9 @@ Domain mód esetén:
 - kizárólag domain hozzáférés
 - automatikus jelszókiolvasás
 
+ℹ️ Fontos:  
+A telepítő alapértelmezetten megnyitja a **6881-es TCP és UDP bejövő portokat**, így a qBittorrent aktív módban működik (DHT, peer-ek, seeding teljes sebességgel).
+
 ---
 
 ## 🚀 Funkciók
@@ -40,6 +43,7 @@ Domain mód esetén:
 - IP hozzáférés tiltása domain módban
 - qBittorrent jelszó automatikus kiolvasása
 - Letisztított, biztonságos Docker stack
+- **6881 TCP/UDP port automatikusan nyitva**
 - Telepítési könyvtár: `/opt/qbittorrent-install`
 
 ---
@@ -72,7 +76,7 @@ A telepítő kérni fogja:
 - WebUI: `http://IP:8080`  
 - Felhasználó: `admin`  
 - Jelszó: automatikusan kiírva  
-- Port: `6881` (TCP/UDP)
+- Bejövő port: **6881 TCP/UDP (nyitva)**
 
 ### ➤ Domain + HTTPS
 - WebUI: `https://sajatdomain.hu`  
