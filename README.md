@@ -129,11 +129,11 @@ Domain mód esetén:
 
 5) Adj futási jogot:
    ```bash
-   chmod +x /opt/qbittorrent-install/update.sh
+   chmod +x /opt/qbittorrent-install/qbittorrent_update.sh
 
 4) Indítsd el:
    ```bash
-   sudo /opt/qbittorrent-install/update.sh
+   sudo /opt/qbittorrent-install/qbittorrent_update.sh
 
 ---
 
