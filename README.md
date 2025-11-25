@@ -140,4 +140,5 @@ Domain mód esetén:
 ## 🧑‍💻 Készítette
 
 **Doky**
+
 2025.11.25
