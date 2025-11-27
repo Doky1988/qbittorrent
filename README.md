@@ -125,7 +125,7 @@ Telepítés után:
   - Név: Bármi lehet
   - Szerver típus: qBittorrent
   - IP vagy hostnév: Szervered IP-je
-  - Felhasználónév: admin
+  - Felhasználónév: `admin`
   - Jelszó: Telepítőben megjelenített
 
 **Haladó beállítások:**
