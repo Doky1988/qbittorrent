@@ -47,24 +47,17 @@ A telepítő futtatásához szükséges:
 
 ### IP mód esetén
 
-WebUI:  
-http://szerver_ip:8080
-
-Transdrone:  
-Host: szerver_ip  
-Port: 8080
+- WebUI: http://szerver_ip:8080
+- Felhasználó: `admin`  
+- Jelszó: automatikusan kiírva  
+- Bejövő port: **6881 TCP/UDP (nyitva)**
 
 ### Domain mód esetén
 
-WebUI (HTTPS):  
-https://te.domained.hu
-
-IP (mindig működik):  
-http://szerver_ip:8080
-
-Transdrone:  
-Host: szerver_ip  
-Port: 8080
+- WebUI (HTTPS): https://te.domained.hu
+- Felhasználó: `admin`
+- Jelszó: megjelenik a telepítés végén
+- IP (mindig működik): http://szerver_ip:8080
 
 ---
 
