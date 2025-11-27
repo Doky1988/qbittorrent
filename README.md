@@ -57,9 +57,9 @@ Port: 8080
 ### Domain mód esetén
 
 WebUI (HTTPS):  
-https://domain.neved
+https://te.domained.hu
 
-IP fallback (mindig működik):  
+IP (mindig működik):  
 http://szerver_ip:8080
 
 Transdrone:  
@@ -84,14 +84,22 @@ Port: 8080
 
 ## 📥 Telepítés
 
-1) Script letöltése:  
-curl -sSL https://.../install.sh -o install.sh
+1) Hozd létre a telepítő fájlt:  
+   ```bash
+   nano qbittorrent_install.sh
+   - Másold bele a scriptet és mentsd el.
 
 2) Futási jog adása:  
-chmod +x install.sh
+   ```bash
+   chmod +x qbittorrent_install.sh
 
 3) Telepítés indítása:  
-sudo ./install.sh
+   ```bash
+   sudo ./qbittorrent_install.sh
+
+A telepítő kérni fogja:
+- IP vagy DOMAIN mód kiválasztását  
+- DOMAIN mód esetén a domaint (pl. te.domained.hu)
 
 A telepítő automatikusan:
 - telepíti a Dockert (ha nincs)
