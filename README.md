@@ -80,13 +80,13 @@ A telepítő futtatásához szükséges:
    ```bash
    nano qbittorrent_install.sh
 
-   - Másold bele a scriptet és mentsd el.
+2) Másold bele a scriptet és mentsd el.
 
-2) Futási jog adása:  
+3) Futási jog adása:  
    ```bash
    chmod +x qbittorrent_install.sh
 
-3) Telepítés indítása:  
+4) Telepítés indítása:  
    ```bash
    sudo ./qbittorrent_install.sh
 
