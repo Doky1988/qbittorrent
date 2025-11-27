@@ -2,118 +2,145 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/Debian-13-red?style=for-the-badge&logo=debian" />
-  <img src="https://img.shields.io/badge/Docker-Supported-2496ED?style=for-the-badge&logo=docker" />
-  <img src="https://img.shields.io/badge/qBittorrent-Enabled-blue?style=for-the-badge&logo=qBittorrent" />
+  <img src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker" />
+  <img src="https://img.shields.io/badge/qBittorrent-Linuxserver.io-blue?style=for-the-badge&logo=qBittorrent" />
   <img src="https://img.shields.io/badge/Caddy-HTTPS-green?style=for-the-badge&logo=caddy" />
-  <img src="https://img.shields.io/badge/Secure-HTTPS%20Only-brightgreen?style=for-the-badge&logo=letsencrypt" />
-  <img src="https://img.shields.io/badge/Author-Doky-purple?style=for-the-badge&logo=github" />
-</p>
-
-<p align="center">
-  <b>Debian 13 | HTTPS | Domain vagy IP alapú elérés | 6881 TCP/UDP port automatikusan nyitva</b>
+  <img src="https://img.shields.io/badge/Transdrone-Compatible-orange?style=for-the-badge" />
+  <img src="https://img.shields.io/badge/Author-Doky-purple?style=for-the-badge" />
 </p>
 
 ---
 
 ## 📌 Leírás
 
-Ez a projekt egy teljesen automatizált telepítő scriptet tartalmaz, amellyel gyorsan és egyszerűen létrehozhatsz egy biztonságos qBittorrent seed szervert Docker környezetben.
+Ez a telepítő script egy automatizált qBittorrent Seed Szerver környezetet hoz létre Debian 13 rendszeren, Docker alapokon.
 
-A script telepítés közben megkérdezi:
-- hogyan szeretnéd elérni a WebUI-t  
-  ✔ IP (http://IP:8080)  
-  ✔ Domain + HTTPS (Caddy reverse proxy)
+Jellemzők:
+- linuxserver/qbittorrent konténer használata
+- IP vagy Domain alapú telepítési mód
+- Domain módban automatikus HTTPS Caddy reverse proxyval
+- qBittorrent automatikusan generált admin jelszó kiolvasása (session log alapján)
+- 6881 TCP/UDP torrent port automatikusan megnyitva
+- 100%-os Transdrone kompatibilitás IP-n keresztül
 
-Domain mód esetén:
-- automatikus HTTPS (Let's Encrypt)
-- IP alapú elérés tiltása
-- kizárólag domain hozzáférés
-- automatikus jelszókiolvasás
-
-ℹ️ Fontos:  
-A telepítő alapértelmezetten megnyitja a **6881-es TCP és UDP bejövő portokat**, így a qBittorrent aktív módban működik (DHT, peer-ek, seeding teljes sebességgel).
+A telepítő stabil, egyszerű, biztonságos és naprakész.
 
 ---
 
-## 🚀 Funkciók
+## 📦 Követelmények
 
-- Teljesen automatizált telepítés (Docker + qBittorrent + Caddy)
-- IP vagy DOMAIN alapú elérés
-- Automatikus Let's Encrypt HTTPS
-- IP hozzáférés tiltása domain módban
-- qBittorrent jelszó automatikus kiolvasása
-- Letisztított, biztonságos Docker stack
-- **6881 TCP/UDP port automatikusan nyitva**
-- Telepítési könyvtár: `/opt/qbittorrent-install`
+A telepítő futtatásához szükséges:
 
----
-
-## 📥 Telepítés
-
-1. Hozd létre a telepítő fájlt:
-   ```bash
-   nano qbittorrent_install.sh
-
-3. Másold bele a scriptet és mentsd el.
-
-4. Adj futási jogot:
-   ```bash
-   chmod +x qbittorrent_install.sh
-
-6. Futtasd:
-   ```bash
-   sudo ./qbittorrent_install.sh
-
-A telepítő kérni fogja:
-- IP vagy DOMAIN mód kiválasztását  
-- DOMAIN mód esetén a domaint (pl. qb.pelda.hu)
+- Debian 13 (ajánlott tiszta rendszer)
+- Root jogosultság
+- Internetkapcsolat (Docker image-ek miatt)
+- Szabad 8080-as port (qBittorrent WebUI)
+- Szabad 6881 TCP/UDP port (torrent bejövő port)
+- Domain mód esetén:
+  - működő domain név
+  - domain A rekord → VPS IP-re mutasson
+  - szabad 80 és 443 port (Caddy számára)
 
 ---
 
 ## 🌐 Elérés
 
-### ➤ IP alapú
-- WebUI: `http://IP:8080`  
-- Felhasználó: `admin`  
-- Jelszó: automatikusan kiírva  
-- Bejövő port: **6881 TCP/UDP (nyitva)**
+### IP mód esetén
 
-### ➤ Domain + HTTPS
-- WebUI: `https://sajatdomain.hu`  
-- HTTPS automatikusan  
-- IP hozzáférés tiltva  
-- Felhasználó: `admin`  
-- Jelszó: megjelenik a telepítés végén  
+WebUI:  
+http://szerver_ip:8080
 
----
+Transdrone:  
+Host: szerver_ip  
+Port: 8080
 
-## 🔐 Biztonság
+### Domain mód esetén
 
-Domain mód esetén:
-- 443-as IP elérés → *403 Forbidden*  
-- automatikus HTTPS  
-- automatikus tanúsítvány megújítás  
-- kizárólag domainen működik a WebUI  
+WebUI (HTTPS):  
+https://domain.neved
+
+IP fallback (mindig működik):  
+http://szerver_ip:8080
+
+Transdrone:  
+Host: szerver_ip  
+Port: 8080
 
 ---
 
-## 🛠 Követelmények
+## 🧩 Funkciók
 
-- Debian 13
-- Root jog
-- VPS
-- Domain mód esetén: A/AAAA rekord + nyitott 80/443
+| Funkció | Részletek |
+|--------|-----------|
+| Telepítési mód | IP vagy Domain (Caddy + HTTPS) |
+| qBittorrent | linuxserver.io image |
+| Reverse proxy | Caddy |
+| HTTPS | automatikus tanúsítványkezelés |
+| Portok | 6881 TCP/UDP + 8080 WebUI |
+| Transdrone | Teljes kompatibilitás IP-n |
+| Jelszó | Automatikusan kiolvasva a logokból |
 
 ---
 
-# 🔄 Konténerek frissítése
+## 📥 Telepítés
 
-1. A konténerek kézi frissítéséhez futtasd:
-   ```bash
-   cd /opt/qbittorrent-install
-   docker compose pull
-   docker compose up -d
-   docker image prune -f
+1) Script letöltése:  
+curl -sSL https://.../install.sh -o install.sh
+
+2) Futási jog adása:  
+chmod +x install.sh
+
+3) Telepítés indítása:  
+sudo ./install.sh
+
+A telepítő automatikusan:
+- telepíti a Dockert (ha nincs)
+- generálja a docker-compose.yml-t
+- domain módban létrehozza a Caddyfile-t
+- elindítja a konténereket
+- kiolvassa az admin jelszót
+- végül rendezett összegzést ad
+
+---
+
+## 📱 Transdrone beállítás
+
+A Transdrone alkalmazás segítségével távolról kezelheted a qBittorrent szerveredet.
+
+### Transdrone letöltése (Google Play)
+
+Link:  
+https://play.google.com/store/apps/details?id=org.transdroid.lite
+
+Google Play-ben kereshető:  
+Transdrone  
+vagy  
+Transdroid Lite
+
+### Transdrone beállítás (IP alapján)
+
+Host: szerver_ip  
+Port: 8080  
+User: admin  
+Pass: a telepítő végén kiírt jelszó
+
+---
+
+## 🔧 Konténerek kézi frissítése
+
+A konténerek manuálisan is frissíthetők sima Docker parancsokkal.
+
+### 1) Új image-ek letöltése  
+docker pull lscr.io/linuxserver/qbittorrent:latest  
+docker pull caddy:latest   (csak domain mód esetén)
+
+### 2) Konténerek újraindítása  
+cd /opt/qbittorrent-seed  
+docker compose down  
+docker compose up -d
+
+### 3) Régi image-ek törlése  
+docker image prune -f
 
 ---
 
@@ -123,22 +150,31 @@ Domain mód esetén:
 
 1) Hozd létre az update script fájlt:
    ```bash
-   nano /opt/qbittorrent-install/qbittorrent_update.sh
+   nano /opt/qbittorrent-seed/qbittorrent_update.sh
 
 4) Másold bele az itt található **qbittorrent_update.sh** script tartalmát, majd mentsd el.
 
 5) Adj futási jogot:
    ```bash
-   chmod +x /opt/qbittorrent-install/qbittorrent_update.sh
+   chmod +x /opt/qbittorrent-seed/qbittorrent_update.sh
 
 4) Indítsd el:
    ```bash
-   sudo /opt/qbittorrent-install/qbittorrent_update.sh
+   sudo /opt/qbittorrent-seed/qbittorrent_update.sh
 
 ---
 
-## 🧑‍💻 Készítette
+## 📂 Könyvtárstruktúra
 
-**Doky**
+/opt/qbittorrent-seed  
+ ├── config  
+ ├── downloads  
+ ├── Caddyfile (ha domain mód)  
+ ├── caddy-data (ha domain mód)  
+ ├── caddy-config (ha domain mód)  
+ └── docker-compose.yml
 
-2025.11.25
+---
+
+## ❤️ Készítette: Doky  
+📅 2025
