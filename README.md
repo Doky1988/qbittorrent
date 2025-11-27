@@ -58,6 +58,9 @@ A telepítő futtatásához szükséges:
 - Jelszó: megjelenik a telepítés végén
 - IP (mindig működik): http://szerver_ip:8080
 
+ℹ️ Fontos:  
+A telepítő alapértelmezetten megnyitja a **6881-es TCP és UDP bejövő portokat**, így a qBittorrent aktív módban működik (DHT, peer-ek, seeding teljes sebességgel).
+
 ---
 
 ## 🧩 Funkciók
@@ -104,7 +107,7 @@ A telepítő automatikusan:
 
 ---
 
-## 📱 Transdrone beállítás
+## 📱 Transdrone
 
 A Transdrone alkalmazás segítségével távolról kezelheted a qBittorrent szerveredet.
 
