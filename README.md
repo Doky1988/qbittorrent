@@ -49,8 +49,7 @@ A telepítő futtatásához szükséges:
 
 - WebUI: http://szerver_ip:8080
 - Felhasználó: `admin`  
-- Jelszó: automatikusan kiírva  
-- Bejövő port: **6881 TCP/UDP (nyitva)**
+- Jelszó: megjelenik a telepítés végén
 
 ### Domain mód esetén
 
