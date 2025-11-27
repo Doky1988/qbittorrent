@@ -48,7 +48,7 @@ A telepítő futtatásához szükséges:
 
 ## 🌐 Elérés
 
-### IP mód esetén
+### 🔵 IP mód esetén
 
 - WebUI: http://szerver_ip:8080
 - Felhasználó: `admin`  
