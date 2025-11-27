@@ -134,22 +134,12 @@ Pass: a telepítő végén kiírt jelszó
 
 A konténerek manuálisan is frissíthetők sima Docker parancsokkal.
 
-### 1) Új image-ek letöltése  
+A konténerek kézi frissítéséhez futtasd:
    ```bash
-   docker pull lscr.io/linuxserver/qbittorrent:latest  
-
-(csak domain mód esetén):
-   ```bash
-   docker pull caddy:latest   
-
-### 2) Konténerek újraindítása  
-   ```bash
-   cd /opt/qbittorrent-seed  
-   docker compose down  
+   cd /opt/qbittorrent-install
+   docker compose pull
    docker compose up -d
-
-### 3) Régi image-ek törlése  
-docker image prune -f
+   docker image prune -f
 
 ---
 
