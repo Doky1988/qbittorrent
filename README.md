@@ -23,6 +23,9 @@ Jellemzők:
 - 6881 TCP/UDP torrent port automatikusan megnyitva
 - 100%-os Transdrone kompatibilitás IP-n keresztül
 
+ℹ️ Fontos:  
+A telepítő alapértelmezetten megnyitja a **6881-es TCP és UDP bejövő portokat**, így a qBittorrent aktív módban működik (DHT, peer-ek, seeding teljes sebességgel).
+
 A telepítő stabil, egyszerű, biztonságos és naprakész.
 
 ---
@@ -57,9 +60,6 @@ A telepítő futtatásához szükséges:
 - Felhasználó: `admin`
 - Jelszó: megjelenik a telepítés végén
 - IP (mindig működik): http://szerver_ip:8080
-
-ℹ️ Fontos:  
-A telepítő alapértelmezetten megnyitja a **6881-es TCP és UDP bejövő portokat**, így a qBittorrent aktív módban működik (DHT, peer-ek, seeding teljes sebességgel).
 
 ---
 
@@ -135,13 +135,18 @@ Pass: a telepítő végén kiírt jelszó
 A konténerek manuálisan is frissíthetők sima Docker parancsokkal.
 
 ### 1) Új image-ek letöltése  
-docker pull lscr.io/linuxserver/qbittorrent:latest  
-docker pull caddy:latest   (csak domain mód esetén)
+   ```bash
+   docker pull lscr.io/linuxserver/qbittorrent:latest  
+
+(csak domain mód esetén):
+   ```bash
+   docker pull caddy:latest   
 
 ### 2) Konténerek újraindítása  
-cd /opt/qbittorrent-seed  
-docker compose down  
-docker compose up -d
+   ```bash
+   cd /opt/qbittorrent-seed  
+   docker compose down  
+   docker compose up -d
 
 ### 3) Régi image-ek törlése  
 docker image prune -f
