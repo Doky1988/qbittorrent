@@ -134,8 +134,7 @@ Pass: a telepítő végén kiírt jelszó
 
 A konténerek manuálisan is frissíthetők sima Docker parancsokkal.
 
-A konténerek kézi frissítéséhez futtasd:
-   ```bash
+A konténerek kézi frissítéséhez futtasd:   
    cd /opt/qbittorrent-install
    docker compose pull
    docker compose up -d
