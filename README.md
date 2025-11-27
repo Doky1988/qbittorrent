@@ -109,25 +109,30 @@ A telepítő automatikusan:
 
 ## 📱 Transdrone
 
-A Transdrone alkalmazás segítségével távolról kezelheted a qBittorrent szerveredet.
+A Transdrone alkalmazás segítségével távolról kezelheted a qBittorrent szerveredet:
 
-### Transdrone letöltése (Google Play)
+**Transdrone – Remote torrent manager**
 
-Link:  
+Letöltés Google Play Áruházból:  
 https://play.google.com/store/apps/details?id=org.transdroid.lite
 
-Google Play-ben kereshető:  
-Transdrone  
-vagy  
-Transdroid Lite
+Telepítés után:
 
-### Transdrone beállítás (IP alapján)
+1. Nyisd meg a Transdrone-t  
+2. Add hozzá → *Add normal, custom server*  
+3. **Töltsd ki az adatokat:**
 
-Host: szerver_ip  
-Port: 8080  
-User: admin  
-Pass: a telepítő végén kiírt jelszó
+  - Név: Bármi lehet
+  - Szerver típus: qBittorrent
+  - IP vagy hostnév: Szervered IP-je
+  - Felhasználónév: admin
+  - Jelszó: Telepítőben megjelenített
 
+**Haladó beállítások:**
+
+   - Port szám: 8080
+ 
+4. Kész – távoli vezérlés és torrent kezelés már mobilról is működik
 ---
 
 ## 🔧 Konténerek kézi frissítése
