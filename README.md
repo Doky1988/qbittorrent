@@ -181,4 +181,4 @@ A konténerek manuálisan is frissíthetők sima Docker parancsokkal.
 ---
 
 ## ❤️ Készítette: Doky  
-📅 2025
+📅 2025.11.27
