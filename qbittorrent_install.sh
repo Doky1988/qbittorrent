@@ -24,7 +24,7 @@ fi
 
 DOMAIN=""
 if [ "$MODE" == "2" ]; then
-  read -rp "Add meg a domaint (pl. qb.zsolti.hu): " DOMAIN
+  read -rp "Add meg a domaint (pl. qb.domain.hu): " DOMAIN
   [ -z "$DOMAIN" ] && echo "Domain nem lehet üres." && exit 1
 fi
 
