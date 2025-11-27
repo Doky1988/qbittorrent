@@ -1,4 +1,4 @@
-<h1 align="center">🚀 qBittorrent Seed Szerver Telepítő (Docker + Caddy)</h1>
+<h1 align="center">🚀 qBittorrent Seed Szerver Telepítő (IP + Domain mód)</h1>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Debian-13-red?style=for-the-badge&logo=debian" />
