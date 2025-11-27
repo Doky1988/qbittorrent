@@ -54,7 +54,7 @@ A telepítő futtatásához szükséges:
 - Felhasználó: `admin`  
 - Jelszó: megjelenik a telepítés végén
 
-### Domain mód esetén
+### 🟢 Domain mód esetén
 
 - WebUI (HTTPS): https://te.domained.hu
 - Felhasználó: `admin`
