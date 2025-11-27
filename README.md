@@ -136,7 +136,7 @@ A konténerek manuálisan is frissíthetők sima Docker parancsokkal.
 
 1. A konténerek kézi frissítéséhez futtasd:
    ```bash
-   cd /opt/qbittorrent-install
+   cd /opt/qbittorrent-seed
    docker compose pull
    docker compose up -d
    docker image prune -f
