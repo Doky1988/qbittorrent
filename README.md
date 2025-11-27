@@ -79,6 +79,7 @@ A telepítő futtatásához szükséges:
 1) Hozd létre a telepítő fájlt:  
    ```bash
    nano qbittorrent_install.sh
+
    - Másold bele a scriptet és mentsd el.
 
 2) Futási jog adása:  
